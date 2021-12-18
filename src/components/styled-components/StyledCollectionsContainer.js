@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 export const StyledCollectionsContainer= styled.div`
 
-  background-color:purple;
 
+  padding-top: 15px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

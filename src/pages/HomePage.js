@@ -1,6 +1,5 @@
-import Header from './header/Header'
-import CollectionsContainer from './collection/CollectionsContainer'
-import styledComponents from 'styled-components'
+import Header from '../components/header/Header'
+import CollectionsContainer from '../components/collection/CollectionsContainer' 
 
 import React, { Component } from 'react'
 

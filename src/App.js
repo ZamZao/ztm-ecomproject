@@ -1,33 +1,44 @@
 import React, { Component } from 'react'
-// import { createGlobalStyle } from 'styled-components';
-import HomePage from './components/HomePage';
+import HomePage from './pages/HomePage';
 import { GlobalStyle } from './components/styled-components/GlobalStyle';
 
 
 export default class App extends Component {
-  constructor(){
+    constructor(){
     super();
     this.state = {
       collections : [
-        { id:0,
-          name:"Hats",
-          imgURL:'imgURL'
+        {
+          title: 'hats',
+          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          id: 1,
+          linkUrl: 'shop/hats'
         },
-        { id:1,
-          name:"Jackets",
-          imgURL:'imgURL',
+        {
+          title: 'jackets',
+          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          id: 2,
+          linkUrl: 'shop/jackets'
         },
-        { id:2,
-          name:"Sneakers",
-          imgURL:'imgURL'
+        {
+          title: 'sneakers',
+          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          id: 3,
+          linkUrl: 'shop/sneakers'
         },
-        { id:3,
-          name:"Women",
-          imgURL:'imgURL'
+        {
+          title: 'womens',
+          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+          size: 'large',
+          id: 4,
+          linkUrl: 'shop/womens'
         },
-        { id:4,
-          name:"Men",
-          imgURL:'imgURL'
+        {
+          title: 'mens',
+          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          size: 'large',
+          id: 5,
+          linkUrl: 'shop/mens'
         }
       ],
       search: "hello",
