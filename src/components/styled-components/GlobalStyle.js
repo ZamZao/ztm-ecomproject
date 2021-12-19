@@ -11,10 +11,9 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
 html , body {
-
     margin: 0;
     background-color: whitesmoke;
     font-family: 'Open Sans Condensed';
-
+    padding: 20px 60px;
 }
 `

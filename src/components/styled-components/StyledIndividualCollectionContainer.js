@@ -3,8 +3,6 @@ import { css } from "styled-components"
 import { StyledBackgroundImage } from "./StyledBackgroundImage"
 
 export const StyledIndividualCollectionContainer = styled.div`
-
-
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -33,6 +31,4 @@ export const StyledIndividualCollectionContainer = styled.div`
     &:last-child {
         margin-left: 7.5px;
     }
-
-
 `
