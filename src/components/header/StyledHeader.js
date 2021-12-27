@@ -19,7 +19,9 @@ margin-bottom: 25px;
         justify-content: flex-end;
             .header-option {
             padding: 10px 15px;
+            cursor: pointer;
             }
+        
     }   
 
 `
