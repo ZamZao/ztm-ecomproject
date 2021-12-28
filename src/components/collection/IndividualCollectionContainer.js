@@ -9,6 +9,7 @@ const IndividualCollectionContainer = (props) => {
             
             <StyledBackgroundImage imgUrl = {props.collection.imageUrl}/>
             <IndividualCollectionTitle CollectionTitle={props.collection.title}/>
+
             
         </StyledIndividualCollectionContainer>
     )

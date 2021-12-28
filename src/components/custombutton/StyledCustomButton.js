@@ -14,6 +14,8 @@ export const StyledCustomButton = styled.button`
   font-weight: bolder;
   border: none;
   cursor: pointer;
+  display:flex;
+  justify-content:center;
 
   &:hover {
     background-color: white;
@@ -28,6 +30,16 @@ export const StyledCustomButton = styled.button`
           color:#357ae8;
           border: 1px solid #357ae8;
           background-color: white;
+      }
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+      &:hover{
+          color:white;
+          background-color: black;
       }
   }
 

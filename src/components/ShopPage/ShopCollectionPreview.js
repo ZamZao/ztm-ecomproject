@@ -11,7 +11,7 @@ function ShopCollectionPreview(props) {
         </div>
         <div className='preview'>
         {
-            ArrArticlePreview.map( article => (<ArticlePreview key={article.id} article={article} /> ))
+            ArrArticlePreview.map( item => (<ArticlePreview key={item.id} item={item} /> ))
         }
         </div>
         </StyledCollectionPreview>
