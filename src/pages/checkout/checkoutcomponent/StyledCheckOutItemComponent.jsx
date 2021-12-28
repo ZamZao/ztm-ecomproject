@@ -26,6 +26,13 @@ export const StyledCheckOutItemComponent = styled.div`
 
   .quantity {
     padding-left: 20px;
+    display:flex;
+    .qtymodifier {
+      cursor:pointer;
+    }
+    .value{
+      margin: 0 10px;
+    }
   }
 
   .remove-button {
