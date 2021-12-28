@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import HomePage from './pages/HomePage';
 import { GlobalStyle } from './components/styled-components/GlobalStyle';
 import ShopPage from './components/ShopPage/ShopPage';
+
 import { Routes,Route} from 'react-router-dom';
 import Header from './components/header/Header';
 import AuthentificationPage from './pages/AuthentificationPage';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { connect } from 'react-redux';
 import {setCurrentUser} from './redux/user/user.actions';
-
+import CheckoutPage from './pages/checkout/CheckoutPage';
 
 class App extends Component {
 SHOP_DATA = [
@@ -331,7 +332,8 @@ SHOP_DATA = [
         <Header/>
         <Routes>
         <Route exact path='/' element={<HomePage collections={this.state.collections}/>} />
-        <Route exact path='/shop' element={<ShopPage/>} />
+        <Route path='/shop' element={<ShopPage/>} />
+        <Route exact path='/checkout' element={<CheckoutPage/>} />
         <Route exact path='/signin' element={<AuthentificationPage/>} />
         </Routes>
         </>

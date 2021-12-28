@@ -3,21 +3,46 @@ import CartItemComponent from '../cartitemcomponent/CartItemComponent'
 import CustomButton from '../custombutton/CustomButton'
 import { StyledCartDropDownComponent} from './StyledCartDropDownComponent'
 import { connect } from 'react-redux'
-import { selectCartItems } from '../../redux/cart/cart.selectors'
+import { selectCartItems, selectCartItemsTotalPrice } from '../../redux/cart/cart.selectors'
+import { useNavigate } from 'react-router-dom'
+import { toggleCartHidden } from '../../redux/cart/cart.actions'
 
 
 
-const CartDropDownComponent = ({cartItems}) => {
+const CartDropDownComponent = ({cartItems,cartTotalPrice, dispatch}) => {
+    const navigate=useNavigate();
+    // function handleClick (){
+    //     console.log('hello');
+    //     useNavigate("/checkout");
+    // }
+
     return (
     
         <StyledCartDropDownComponent >
             <div className="cart-items">
-            { cartItems.map((item) => (
-                    <CartItemComponent item={item} key={item.id}/>
-            ))
-            }
+                { cartItems.length ? 
+                (   <>
+                    { cartItems.map((item) => (
+                        <CartItemComponent item={item} key={item.id}/>
+                        ))
+                    }
+                        <div className="cart-totalprice">
+                        <span className="price">{`Total Cart Price $${cartTotalPrice}`}</span>
+                    </div>
+                    </>
+                    ) : (
+                        <span className="empty-message">Your cart is empty</span>
+                    )
+                }
             </div>
-            <CustomButton>GO TO CHECKOUT</CustomButton>
+            <CustomButton onClick={ () => {
+                navigate("/checkout");
+                dispatch(toggleCartHidden());
+            }
+
+            }>
+                    GO TO CHECKOUT
+            </CustomButton>
             
         </StyledCartDropDownComponent>
     )
@@ -25,7 +50,9 @@ const CartDropDownComponent = ({cartItems}) => {
 
 const mapStateToProps = state => ({
     cartItems: selectCartItems(state),
+    cartTotalPrice: selectCartItemsTotalPrice(state)
     
 })
+
 
 export default connect(mapStateToProps)(CartDropDownComponent);
