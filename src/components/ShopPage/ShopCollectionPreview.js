@@ -1,13 +1,21 @@
 import React from 'react'
 import ArticlePreview from './ArticlePreview';
 import { StyledCollectionPreview } from './StyleCollectionPreview';
+import { Link } from 'react-router-dom';
 
-function ShopCollectionPreview(props) {
-    const ArrArticlePreview = props.collection.items.slice(0,4);
+function ShopCollectionPreview({collection}) {
+
+
+        const ArrArticlePreview = collection.items.slice(0,4)
+
     return (
         <StyledCollectionPreview>
         <div>
-            <h1 className='title'>{props.collection.title.toUpperCase()}</h1>
+            <h1 className='title'>
+                <Link to={collection.title.toLowerCase()}>
+                    {collection.title.toUpperCase()}
+                </Link>
+            </h1>
         </div>
         <div className='preview'>
         {

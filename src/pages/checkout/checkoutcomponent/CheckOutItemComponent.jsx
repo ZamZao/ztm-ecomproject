@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledCheckOutItemComponent } from './StyledCheckOutItemComponent'
 import { connect } from 'react-redux'
-import { clearItemFromCart, removeItem,addItem} from '../../../redux/cart/cart.actions'
+import { clearItemFromCart, decrementItem,addItem} from '../../../redux/cart/cart.actions'
 
 const CheckOutItemComponent = ({cartItem,clearItemFromCart,DecrementOrRemoveItemFromCart,IncrementItemFromCart}) => {
     
@@ -36,7 +36,7 @@ const CheckOutItemComponent = ({cartItem,clearItemFromCart,DecrementOrRemoveItem
 
 const mapDispatchToProps = dispatch => ({
     clearItemFromCart: item => dispatch(clearItemFromCart(item)),
-    DecrementOrRemoveItemFromCart: item => dispatch(removeItem(item)),
+    DecrementOrRemoveItemFromCart: item => dispatch(decrementItem(item)),
     IncrementItemFromCart: item => dispatch(addItem(item)),
 })
 

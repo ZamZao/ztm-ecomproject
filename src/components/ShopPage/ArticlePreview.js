@@ -13,7 +13,7 @@ function ArticlePreview({item,addItem}) {
             style={{backgroundImage: `url(${imageUrl})`
             }}/>
             <div className="collection-footer">
-            <p className='name'>${name}</p>
+            <p className='name'>{name}</p>
             <p className='price'>${price}</p>
           
 

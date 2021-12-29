@@ -14,7 +14,7 @@ export const clearItemFromCart = item => ({
     payload:item
 })
 
-export const removeItem = item => ({
-    type: CartActionTypes.REMOVE_ITEM,
+export const decrementItem = item => ({
+    type: CartActionTypes.DECREMENT_ITEM,
     payload:item
 })
