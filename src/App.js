@@ -8,20 +8,23 @@ import { connect } from 'react-redux';
 import { Routes,Route} from 'react-router-dom';
 import Header from './components/header/Header';
 import AuthentificationPage from './pages/AuthentificationPage';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import {auth, createUserProfileDocument } from './firebase/firebase.utils'
 import {setCurrentUser} from './redux/user/user.actions';
 import CheckoutPage from './pages/checkout/CheckoutPage';
-import CollectionPage from './components/collectionpage/CollectionPage';
+
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
+
+
 
 
 
 class App extends Component {
   unsubscribeFromAuth = null;
-
+  
   componentDidMount() {
-
     const {setCurrentUser} = this.props;
-
+    
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -60,9 +63,15 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  
+
+})
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 })
 
 
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

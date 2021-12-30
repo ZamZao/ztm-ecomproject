@@ -8,7 +8,8 @@ import ArticlePreview from '../ShopPage/ArticlePreview'
 
 const CollectionPage = () => {
     const params = useParams();
-    const selectedCollection = useSelector(state => state.shop.collections[params.collectionName]);
+    let selectedCollection = useSelector(state => state.shop.collections[params.collectionName]);
+    selectedCollection = selectedCollection ? selectedCollection : null;
     return (
         <StyledCollectionPage>
 

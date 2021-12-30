@@ -6,7 +6,7 @@ export default class HomePage extends Component {
     render() {
         return (
         <div>
-            <CollectionsContainer collections={this.props.collections}/>
+            <CollectionsContainer/>
         </div>
            
         )

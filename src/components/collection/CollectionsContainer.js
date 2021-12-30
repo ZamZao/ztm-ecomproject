@@ -4,10 +4,13 @@ import IndividualCollectionContainer from './IndividualCollectionContainer'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { selectCollections } from '../../redux/directory/directory.selectors'
+import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors'
 
 
-const CollectionsContainer = ({collections}) => {
+const CollectionsContainer = ({collections,collectionsForPreview}) => {
     
+    console.log('collectionContainer',{collections},{collectionsForPreview})
+
     return (
         <StyledCollectionsContainer
         >
@@ -22,6 +25,7 @@ const CollectionsContainer = ({collections}) => {
 
 const mapStateToProps = createStructuredSelector({
     collections: selectCollections,
+    collectionsForPreview: selectCollectionsForPreview,
 
 })
 

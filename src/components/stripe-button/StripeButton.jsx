@@ -1,6 +1,5 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
-import { StyledStripeButton } from './StyledStripeButton'
 
 const StripeButton = ({price}) => {
 
