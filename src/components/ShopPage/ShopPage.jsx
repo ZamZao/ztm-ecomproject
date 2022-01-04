@@ -1,32 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Routes,Route } from 'react-router-dom';
 import CollectionPage from '../collectionpage/CollectionPage';
 import { connect } from 'react-redux';
-
 import { fetchCollectionStart } from '../../redux/shop/shop.actions';
 import WithSpinner from '../with-spinner/WithSpinner';
 import { createStructuredSelector } from 'reselect';
 import {selectIsCollectionLoaded } from '../../redux/shop/shop.selectors';
 import CollectionOverviewContainer from '../collections-overview/collections-overview-container';
+import { useEffect } from 'react';
 
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
-class ShopPage extends Component {
-    state ={
-        loading:true,
-    }
+const ShopPage = ({fetchCollectionStart,isCollectionLoaded}) => {
     
-    unsubscribeFromSnapShot = null;
-
-    componentDidMount(){
-        const {fetchCollectionStart} = this.props;
+    useEffect(()=>{
         fetchCollectionStart();
-
-
-    }
-    
-    render() {
-        const {isCollectionLoaded} = this.props;
+    },[fetchCollectionStart])    
         return (
             <div>
             <Routes>
@@ -39,16 +28,12 @@ class ShopPage extends Component {
             </Routes>
         </div>
         )
-    }
 }
 
 const mapDispatchToProps = dispatch =>({
     fetchCollectionStart: () => dispatch(fetchCollectionStart())
-     
 })
-
 const mapStateToProps = createStructuredSelector({
     isCollectionLoaded: selectIsCollectionLoaded
-
 })
 export default connect(mapStateToProps,mapDispatchToProps)(ShopPage);

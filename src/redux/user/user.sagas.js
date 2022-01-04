@@ -38,6 +38,9 @@ export function* signInWithGoogle() {
     }
 }
 
+export function* signInAfterSignUp({payload: {user,additionalData}}) {
+  yield getSnapshotFromUserAuth(user,additionalData);
+}
 export function* signInWithEmail({ payload: { email, password } }) {
     try {
       const { user } = yield auth.signInWithEmailAndPassword(email, password);
@@ -47,11 +50,6 @@ export function* signInWithEmail({ payload: { email, password } }) {
     }
 }
 
-export function* signInAfterSignUp({payload: {user,additionalData}}) {
-  yield getSnapshotFromUserAuth(user,additionalData);
-
-
-}
 
 export function* isUserAuthenticated(){
     try {

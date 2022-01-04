@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import HomePage from './pages/HomePage';
 import { GlobalStyle } from './components/styled-components/GlobalStyle';
 import ShopPage from './components/ShopPage/ShopPage';
@@ -19,16 +19,13 @@ import { checkUserSession } from './redux/user/user.actions';
 
 
 
-class App extends Component {    
+const App = ({currentUser,checkUserSession}) =>  {    
 
-  componentDidMount() {
-    const { checkUserSession } = this.props;
-    checkUserSession();
-  }
-
+    useEffect(() => {
+      checkUserSession();
+    }, [checkUserSession]);
   
-            render() {
-              const {currentUser} = this.props;
+           
               return (
                 <>
         <GlobalStyle/>
@@ -44,7 +41,7 @@ class App extends Component {
         </Routes>
         </>
     )
-  }
+  
 }
 
 
@@ -56,7 +53,4 @@ const mapDispatchToProps = dispatch => ({
   checkUserSession: () => dispatch(checkUserSession()),
 })
 
-export default connect(mapStateToProps,
-  mapDispatchToProps
-  )
-  (App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
