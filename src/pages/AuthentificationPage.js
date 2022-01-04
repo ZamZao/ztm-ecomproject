@@ -9,13 +9,10 @@ import { selectCurrentUser } from '../redux/user/user.selectors'
 
 
 
-const AuthentificationPage = ({currentUser}) => {
-
-    console.log(currentUser);
-    
+const AuthentificationPage = () => {    
     return (
         <StyledAuthentificationPage>
-            <div className="">{currentUser}</div>
+
             <SignInComponent/>
             <SignUpComponent/>
 

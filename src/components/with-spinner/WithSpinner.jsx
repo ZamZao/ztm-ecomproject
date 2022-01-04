@@ -17,3 +17,4 @@ const WithSpinner = WrappedComponent => {
 }
 
 export default WithSpinner
+
